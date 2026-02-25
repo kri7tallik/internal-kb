@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internal KB</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <h2>Internal KB</h2>
+      <button id="loadIdeas">Ideas</button>
+      <button id="loadProjects">USA Projects</button>
+    </aside>
+
+    <main class="content">
+      <h1 id="sectionTitle">Dashboard</h1>
+
+      <button id="addBtn">Add New</button>
+
+      <div id="output"></div>
+
+      <div id="formContainer" style="display:none;">
+        <input id="titleInput" placeholder="Title" />
+
+        <textarea id="descInput" placeholder="Description"></textarea>
+
+        <select id="priorityInput">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+
+        <select id="statusInput">
+          <option value="New">New</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Done">Done</option>
+        </select>
+
+        <input id="authorInput" placeholder="Author" />
+
+        <button id="saveBtn">Save</button>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
