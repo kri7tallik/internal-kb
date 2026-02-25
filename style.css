@@ -281,3 +281,77 @@ tbody tr:hover {
 .toast.error {
   box-shadow: 0 0 25px rgba(255,0,0,0.4);
 }
+/* ================= LOGIN PAGE ================= */
+
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(124,58,237,0.3), transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(168,85,247,0.2), transparent 40%),
+    #07070f;
+  overflow: hidden;
+}
+
+.login-wrapper {
+  animation: fadeIn 0.8s ease;
+}
+
+.login-card {
+  width: 380px;
+  padding: 45px 40px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 0 50px rgba(124,58,237,0.3),
+    inset 0 0 20px rgba(255,255,255,0.05);
+  text-align: center;
+}
+
+.login-card h1 {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.login-sub {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.login-card input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.05);
+  color: white;
+  transition: 0.3s ease;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #7c3aed;
+  box-shadow: 0 0 15px rgba(124,58,237,0.5);
+}
+
+.login-card button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: white;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.login-card button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(168,85,247,0.6);
+}

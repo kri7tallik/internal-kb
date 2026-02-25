@@ -1,3 +1,11 @@
+async function checkAuth() {
+  const { data } = await client.auth.getSession();
+  if (!data.session) {
+    window.location.href = "login.html";
+  }
+}
+checkAuth();
+
 const SUPABASE_URL = "https://knwjtoxliutzwnwuzdaz.supabase.co";
 const SUPABASE_KEY = "sb_publishable_9nUDVJom7URGqsUYcFjPsA_rjFe_k6D";
 

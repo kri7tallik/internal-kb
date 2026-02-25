@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Internal KB — Login</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+
+<div class="login-wrapper">
+
+  <div class="login-card">
+    <h1>Internal KB</h1>
+    <p class="login-sub">Secure Access</p>
+
+    <form id="loginForm">
+      <input type="email" id="emailInput" placeholder="Email" required />
+      <input type="password" id="passwordInput" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+</div>
+
+<script>
+const SUPABASE_URL = "https://knwjtoxliutzwnwuzdaz.supabase.co";
+const SUPABASE_KEY = "ТВОЙ_PUBLISHABLE_KEY";
+
+const { createClient } = supabase;
+const client = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = emailInput.value;
+  const password = passwordInput.value;
+
+  const { data, error } = await client.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) {
+    showToast(error.message, "error");
+    return;
+  }
+
+  if (data.session) {
+    window.location.href = "index.html";
+  }
+});
+
+/* Toast */
+function showToast(message, type = "success") {
+  const toast = document.createElement("div");
+  toast.className = `toast ${type}`;
+  toast.innerText = message;
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.classList.add("show"), 50);
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => toast.remove(), 400);
+  }, 3000);
+}
+</script>
+
+</body>
+</html>
