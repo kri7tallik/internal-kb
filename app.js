@@ -464,20 +464,20 @@ function renderUSAProjects() {
   const usa1Projects = [
   { title: "JackpotRabbit", image: "images/usa1_1.webp" },
   { title: "FunzCity", image: "images/usa1_2.webp" },
-  { title: "Funrize", image: "images/pysto.webp" },
-  { title: "MrGoodwin", image: "images/pysto.webp" },
-  { title: "Playtana", image: "images/pysto.webp" },
-  { title: "SweepShark", image: "images/pysto.webp" },
-  { title: "Sweepico", image: "images/pysto.webp" }
+  { title: "Funrize", image: "images/usa1_3.webp" },
+  { title: "MrGoodwin", image: "images/usa1_4.webp" },
+  { title: "Playtana", image: "images/usa1_5.webp" },
+  { title: "SweepShark", image: "images/usa1_6.webp" },
+  { title: "Sweepico", image: "images/usa1_7.webp" }
 ];
 
 const usa2Projects = [
   { title: "Nolimit Coins", image: "images/usa2_1.webp" },
-  { title: "Taofortune", image: "images/pysto.webp" },
-  { title: "ScarletSands", image: "images/pysto.webp" },
-  { title: "Stormrush", image: "images/pysto.webp" },
-  { title: "FireSevens", image: "images/pysto.webp" },
-  { title: "Vegasway", image: "images/pysto.webp" }
+  { title: "Taofortune", image: "images/usa2_2.webp" },
+  { title: "ScarletSands", image: "images/usa2_3.webp" },
+  { title: "Stormrush", image: "images/usa2_4.webp" },
+  { title: "FireSevens", image: "images/usa2_5.webp" },
+  { title: "Vegasway", image: "images/usa2_6.webp" }
 ];
 
 usa1Projects.forEach(p =>
