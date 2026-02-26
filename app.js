@@ -49,8 +49,8 @@ async function loadIdeas() {
   renderIdeas(data);
 }
 
-async function loadProjects() {
-  sectionTitle.textContent = "USA Projects";
+async function loadTest() {
+  sectionTitle.textContent = "тест";
 
   const { data, error } = await client
     .from("usa_projects")
@@ -434,4 +434,54 @@ function showToast(message, type = "success") {
     toast.classList.remove("show");
     setTimeout(() => toast.remove(), 400);
   }, 3000);
+}
+document.getElementById("loadTest").addEventListener("click", loadTest);
+document.getElementById("loadUSA").addEventListener("click", renderUSAProjects);
+function renderUSAProjects() {
+
+  sectionTitle.textContent = "USA Projects";
+  output.innerHTML = "";
+
+  const usaContainer = document.createElement("div");
+  usaContainer.className = "usaContainer";
+
+  usaContainer.innerHTML = `
+    <h2 class="usaGroupTitle">USA 1</h2>
+    <div class="usaGrid" id="usa1"></div>
+
+    <h2 class="usaGroupTitle">USA 2</h2>
+    <div class="usaGrid" id="usa2"></div>
+  `;
+
+  output.appendChild(usaContainer);
+
+  const usa1 = document.getElementById("usa1");
+  const usa2 = document.getElementById("usa2");
+
+  for (let i = 1; i <= 8; i++) {
+    usa1.appendChild(createProjectCard("USA1 Project " + i, "images/usa1_" + i + ".jpg"));
+  }
+
+  for (let i = 1; i <= 8; i++) {
+    usa2.appendChild(createProjectCard("USA2 Project " + i, "images/usa2_" + i + ".jpg"));
+  }
+}
+function createProjectCard(title, imageUrl) {
+
+  const card = document.createElement("div");
+  card.className = "usaCard";
+  card.style.backgroundImage = `url(${imageUrl})`;
+
+  card.innerHTML = `
+    <div class="usaOverlay">
+      <h3>${title}</h3>
+    </div>
+  `;
+
+  // в будущем тут будет переход
+  card.addEventListener("click", () => {
+    showToast(title);
+  });
+
+  return card;
 }

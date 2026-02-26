@@ -422,3 +422,52 @@ tbody tr:hover {
     background: transparent;
   }
 }
+/* ================= USA PROJECTS ================= */
+
+.usaContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.usaGroupTitle {
+  color: #b983ff;
+  margin-bottom: 10px;
+}
+
+.usaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.usaCard {
+  height: 160px;
+  border-radius: 14px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.3s ease;
+  box-shadow: 0 0 30px rgba(124,58,237,0.25);
+}
+
+.usaCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 40px rgba(168,85,247,0.5);
+}
+
+.usaOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+  display: flex;
+  align-items: flex-end;
+  padding: 15px;
+}
+
+.usaOverlay h3 {
+  margin: 0;
+  color: white;
+}
