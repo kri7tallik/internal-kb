@@ -461,13 +461,25 @@ function renderUSAProjects() {
   const usa1 = document.getElementById("usa1");
   const usa2 = document.getElementById("usa2");
 
-  for (let i = 1; i <= 8; i++) {
-    usa1.appendChild(createProjectCard("USA1 Project " + i, "images/usa1_" + i + ".jpg"));
-  }
+  const usa1Projects = [
+  { title: "Project A", image: "usa1_1.webp" },
+  { title: "Project B", image: "images/realname2.webp" },
+  { title: "Project C", image: "images/realname3.webp" }
+];
 
-  for (let i = 1; i <= 8; i++) {
-    usa2.appendChild(createProjectCard("USA2 Project " + i, "images/usa2_" + i + ".jpg"));
-  }
+const usa2Projects = [
+  { title: "Project X", image: "images/usa2_1.webp" },
+  { title: "Project Y", image: "images/realname5.webp" },
+  { title: "Project Z", image: "images/realname6.webp" }
+];
+
+usa1Projects.forEach(p =>
+  usa1.appendChild(createProjectCard(p.title, p.image))
+);
+
+usa2Projects.forEach(p =>
+  usa2.appendChild(createProjectCard(p.title, p.image))
+);
 }
 function createProjectCard(title, imageUrl) {
 
