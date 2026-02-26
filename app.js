@@ -186,9 +186,16 @@ output.appendChild(searchBar);
       <td>${item.created_at ? new Date(item.created_at).toLocaleDateString() : ""}</td>
       <td>${item.title}</td>
       <td>${item.description || "-"}</td>
-      <td class="priority-${(item.priority || "").toLowerCase()}">${item.priority || ""}</td>
-      <td class="status-${(item.status || "").toLowerCase().replace(" ", "-")}">
-  ${item.status || "-"}
+      <td>
+  <span class="badge priority-${(item.priority || "").toLowerCase()}">
+    ${item.priority || "-"}
+  </span>
+</td>
+
+<td>
+  <span class="badge status-${(item.status || "").toLowerCase().replace(" ", "-")}">
+    ${item.status || "-"}
+  </span>
 </td>
       <td>${item.author || "-"}</td>
       <td><button class="deleteBtn">Delete</button></td>
@@ -252,14 +259,27 @@ editableFields.forEach(({ index, field, type, options }) => {
 
       // Обновляем цвет
       if (field === "priority") {
-        cell.className = "priority-" + newValue.toLowerCase();
-      }
+  cell.innerHTML = `
+    <span class="badge priority-${newValue.toLowerCase()}">
+      ${newValue}
+    </span>
+  `;
+}
 
-      if (field === "status") {
-        cell.className = "status-" + newValue.toLowerCase().replace(" ", "-");
-      }
+else if (field === "status") {
+  cell.innerHTML = `
+    <span class="badge status-${newValue.toLowerCase().replace(" ", "-")}">
+      ${newValue}
+    </span>
+  `;
+}
 
-      cell.innerText = newValue;
+else {
+  cell.innerText = newValue;
+}
+
+cell.classList.add("cell-updated");
+setTimeout(() => cell.classList.remove("cell-updated"), 1200);
 
       showToast("Updated");
     };
