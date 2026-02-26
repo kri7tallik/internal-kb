@@ -462,7 +462,7 @@ function renderUSAProjects() {
   const usa2 = document.getElementById("usa2");
 
   const usa1Projects = [
-  { title: "Project A", image: "usa1_1.webp" },
+  { title: "Project A", image: "images/usa1_1.webp" },
   { title: "Project B", image: "images/realname2.webp" },
   { title: "Project C", image: "images/realname3.webp" }
 ];
