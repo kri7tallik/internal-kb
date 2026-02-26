@@ -24,7 +24,11 @@ const output = document.getElementById("output");
 const sectionTitle = document.getElementById("sectionTitle");
 
 document.getElementById("loadIdeas").addEventListener("click", loadIdeas);
-document.getElementById("loadProjects").addEventListener("click", loadProjects);
+ document.getElementById("loadTest")
+    .addEventListener("click", loadTest);
+
+  document.getElementById("loadUSA")
+    .addEventListener("click", renderUSAProjects);
 document.getElementById("addBtn").addEventListener("click", () => {
   document.getElementById("formContainer").style.display = "block";
 });
@@ -435,8 +439,7 @@ function showToast(message, type = "success") {
     setTimeout(() => toast.remove(), 400);
   }, 3000);
 }
-document.getElementById("loadTest").addEventListener("click", loadTest);
-document.getElementById("loadUSA").addEventListener("click", renderUSAProjects);
+
 function renderUSAProjects() {
 
   sectionTitle.textContent = "USA Projects";
