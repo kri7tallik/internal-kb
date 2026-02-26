@@ -195,30 +195,53 @@ output.appendChild(searchBar);
     `;
 // ===== Inline Edit =====
 
+// ===== INLINE EDIT SMART =====
+
 const editableFields = [
-  { index: 1, field: "title" },
-  { index: 2, field: "description" },
-  { index: 3, field: "priority" },
-  { index: 4, field: "status" },
-  { index: 5, field: "author" }
+  { index: 2, field: "title", type: "text" },
+  { index: 3, field: "description", type: "text" },
+  { index: 4, field: "priority", type: "select", options: ["Low","Medium","High"] },
+  { index: 5, field: "status", type: "select", options: ["New","In Progress","Done"] },
+  { index: 6, field: "author", type: "text" }
 ];
 
-editableFields.forEach(({ index, field }) => {
+editableFields.forEach(({ index, field, type, options }) => {
+
   const cell = row.children[index];
 
   cell.addEventListener("dblclick", () => {
 
     const oldValue = cell.innerText;
-    const input = document.createElement("input");
-    input.value = oldValue;
-    input.style.width = "100%";
+
+    let editor;
+
+    if (type === "select") {
+      editor = document.createElement("select");
+
+      options.forEach(option => {
+        const opt = document.createElement("option");
+        opt.value = option;
+        opt.textContent = option;
+        if (option === oldValue) opt.selected = true;
+        editor.appendChild(opt);
+      });
+
+    } else {
+      editor = document.createElement("input");
+      editor.type = "text";
+      editor.value = oldValue;
+    }
+
+    editor.style.width = "100%";
+    editor.classList.add("inlineEditor");
 
     cell.innerHTML = "";
-    cell.appendChild(input);
-    input.focus();
+    cell.appendChild(editor);
+    editor.focus();
 
     const saveChange = async () => {
-      const newValue = input.value.trim();
+
+      const newValue = editor.value.trim();
       if (!newValue) {
         cell.innerText = oldValue;
         return;
@@ -229,38 +252,31 @@ editableFields.forEach(({ index, field }) => {
         .update({ [field]: newValue })
         .eq("id", item.id);
 
+      // Обновляем цвет
       if (field === "priority") {
         cell.className = "priority-" + newValue.toLowerCase();
       }
 
+      if (field === "status") {
+        cell.className = "status-" + newValue.toLowerCase().replace(" ", "-");
+      }
+
       cell.innerText = newValue;
+
+      showToast("Updated");
     };
 
-    input.addEventListener("blur", saveChange);
+    editor.addEventListener("blur", saveChange);
 
-    input.addEventListener("keydown", (e) => {
+    editor.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
-        input.blur();
+        editor.blur();
       }
     });
 
   });
-});
-    row.querySelector(".deleteBtn").addEventListener("click", async () => {
-
-  row.classList.add("fade-out");
-
-  setTimeout(async () => {
-    await client.from("AF_idea").delete().eq("id", item.id);
-    row.remove();
-  }, 300);
 
 });
-
-    tbody.appendChild(row);
-  });
-
-  output.appendChild(table);
 
   /* FILTER LOGIC */
   document.getElementById("priorityFilter")

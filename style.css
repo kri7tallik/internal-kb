@@ -355,3 +355,10 @@ tbody tr:hover {
   transform: translateY(-3px);
   box-shadow: 0 0 25px rgba(168,85,247,0.6);
 }
+.inlineEditor {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  padding: 4px 6px;
+  color: white;
+}
