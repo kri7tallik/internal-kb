@@ -193,8 +193,6 @@ output.appendChild(searchBar);
       <td>${item.author || "-"}</td>
       <td><button class="deleteBtn">Delete</button></td>
     `;
-// ===== Inline Edit =====
-
 // ===== INLINE EDIT SMART =====
 
 const editableFields = [
@@ -277,6 +275,21 @@ editableFields.forEach(({ index, field, type, options }) => {
   });
 
 });
+    row.querySelector(".deleteBtn").addEventListener("click", async () => {
+
+  row.classList.add("fade-out");
+
+  setTimeout(async () => {
+    await client.from("AF_idea").delete().eq("id", item.id);
+    row.remove();
+  }, 300);
+
+});
+
+    tbody.appendChild(row);
+  });
+
+  output.appendChild(table);
 
   /* FILTER LOGIC */
   document.getElementById("priorityFilter")
