@@ -1,11 +1,3 @@
-async function checkAuth() {
-  const { data } = await client.auth.getSession();
-  if (!data.session) {
-    window.location.href = "login.html";
-  }
-}
-checkAuth();
-
 const SUPABASE_URL = "https://knwjtoxliutzwnwuzdaz.supabase.co";
 const SUPABASE_KEY = "sb_publishable_9nUDVJom7URGqsUYcFjPsA_rjFe_k6D";
 
@@ -16,6 +8,18 @@ const client = createClient(SUPABASE_URL, SUPABASE_KEY, {
     autoRefreshToken: false
   }
 });
+
+/* ================= AUTH CHECK ================= */
+
+async function checkAuth() {
+  const { data } = await client.auth.getSession();
+  if (!data.session) {
+    window.location.href = "login.html";
+    return;
+  }
+}
+
+checkAuth();
 
 const output = document.getElementById("output");
 const sectionTitle = document.getElementById("sectionTitle");
