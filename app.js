@@ -196,11 +196,11 @@ output.appendChild(searchBar);
 // ===== INLINE EDIT SMART =====
 
 const editableFields = [
-  { index: 2, field: "title", type: "text" },
-  { index: 3, field: "description", type: "text" },
-  { index: 4, field: "priority", type: "select", options: ["Low","Medium","High"] },
-  { index: 5, field: "status", type: "select", options: ["New","In Progress","Done"] },
-  { index: 6, field: "author", type: "text" }
+  { index: 1, field: "title", type: "text" },
+  { index: 2, field: "description", type: "text" },
+  { index: 3, field: "priority", type: "select", options: ["Low","Medium","High"] },
+  { index: 4, field: "status", type: "select", options: ["New","In Progress","Done"] },
+  { index: 5, field: "author", type: "text" }
 ];
 
 editableFields.forEach(({ index, field, type, options }) => {
