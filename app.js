@@ -4,8 +4,7 @@ const SUPABASE_KEY = "sb_publishable_9nUDVJom7URGqsUYcFjPsA_rjFe_k6D";
 const { createClient } = supabase;
 const client = createClient(SUPABASE_URL, SUPABASE_KEY, {
   auth: {
-    persistSession: false,
-    autoRefreshToken: false
+    storage: window.sessionStorage
   }
 });
 
