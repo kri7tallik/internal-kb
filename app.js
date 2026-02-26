@@ -462,15 +462,22 @@ function renderUSAProjects() {
   const usa2 = document.getElementById("usa2");
 
   const usa1Projects = [
-  { title: "Project A", image: "images/usa1_1.webp" },
-  { title: "Project B", image: "images/realname2.webp" },
-  { title: "Project C", image: "images/realname3.webp" }
+  { title: "JackpotRabbit", image: "images/usa1_1.webp" },
+  { title: "FunzCity", image: "images/usa1_2.webp" },
+  { title: "Funrize", image: "images/pysto.webp" },
+  { title: "MrGoodwin", image: "images/pysto.webp" },
+  { title: "Playtana", image: "images/pysto.webp" },
+  { title: "SweepShark", image: "images/pysto.webp" },
+  { title: "Sweepico", image: "images/pysto.webp" }
 ];
 
 const usa2Projects = [
-  { title: "Project X", image: "images/usa2_1.webp" },
-  { title: "Project Y", image: "images/realname5.webp" },
-  { title: "Project Z", image: "images/realname6.webp" }
+  { title: "Nolimit Coins", image: "images/usa2_1.webp" },
+  { title: "Taofortune", image: "images/pysto.webp" },
+  { title: "ScarletSands", image: "images/pysto.webp" },
+  { title: "Stormrush", image: "images/pysto.webp" },
+  { title: "FireSevens", image: "images/pysto.webp" },
+  { title: "Vegasway", image: "images/pysto.webp" }
 ];
 
 usa1Projects.forEach(p =>
